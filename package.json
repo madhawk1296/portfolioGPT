@@ -36,6 +36,7 @@
     "words-count": "^2.0.2"
   },
   "devDependencies": {
-    "@types/numeral": "^2.0.2"
+    "@types/numeral": "^2.0.2",
+    "encoding": "^0.1.13"
   }
 }
