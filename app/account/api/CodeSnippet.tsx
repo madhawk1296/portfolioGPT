@@ -8,11 +8,11 @@ export default function CodeSnippet({ apiKey }: {apiKey: string}) {
 
     const text = fullExample ? `<head>
     <!-- Paste your code snippet here -->
-    <script src='http://localhost/chatbot?id=${apiKey}' async defer/>
+    <script src='https://chatfolio.org/chatbot?id=${apiKey}' async defer/>
 </head>
 <body>
     <!-- The content of your website -->
-</body>` : `<script src='http://localhost/chatbot?id=${apiKey}' async defer/>`;
+</body>` : `<script src='https://chatfolio.org/chatbot?id=${apiKey}' async defer/>`;
 
     const handleFullExample = () => {
         setFullExample(true);

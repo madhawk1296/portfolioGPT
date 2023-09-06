@@ -64,7 +64,7 @@ export default function Chatbot(){
                 <ChatHistory messageHistory={messageHistory} loading={loading} chatbotColor={chatbotColor} />
                 {!removeBranding && <div className="relative w-full p-[10px] flex justify-center">
                     <h1 className="w-fit font-medium text-gray-500 tracking-wide">
-                        Powered by <a className="text-gray-600 underline" href="http://localhost:3000" target="_blank">Chatfolio</a>
+                        Powered by <a className="text-gray-600 underline" href="https://chatfolio.org" target="_blank">Chatfolio</a>
                     </h1>
                 </div>}
                 <form onSubmit={sendMessage} className={`relative w-full bg-black h-[50px] flex border border-gray-300 rounded-md overflow-hidden smoothe shadow-md hover:shadow-lg bg-white`}>

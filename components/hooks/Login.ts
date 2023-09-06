@@ -9,7 +9,7 @@ export default function Login() {
         const { data } = await getClientSupabaseSession();
 
         if(data.session) {
-            router.push('/account')
+            router.push('/account');
         } else {
             await googleLogin();
         }

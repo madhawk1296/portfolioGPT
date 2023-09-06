@@ -43,7 +43,7 @@ export default function Customize({ profile, locked }: {profile: any, locked: bo
             {locked && (
                 <div className="flex gap-2 py-[10px] px-[15px] rounded-lg bg-gray-800 w-fit items-center">
                     <Lock selected={true} />
-                    <h1 className="text-gray-100 text-sm font-medium tracking-wide">These features are only available to Pro and Enthusiast tiers. Upgrade to the <Link className="underline font-semibold" href="http://localhost:3000/account/plans">Pro Tier</Link> to customize your chatbot.</h1>
+                    <h1 className="text-gray-100 text-sm font-medium tracking-wide">These features are only available to Pro and Enthusiast tiers. Upgrade to the <Link className="underline font-semibold" href="https://chatfolio.org/account/plans">Pro Tier</Link> to customize your chatbot.</h1>
                 </div>
             )}
             <div className="w-full flex flex-col gap-2">
