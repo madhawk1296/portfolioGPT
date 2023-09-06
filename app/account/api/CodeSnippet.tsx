@@ -22,6 +22,8 @@ export default function CodeSnippet({ apiKey }: {apiKey: string}) {
         setFullExample(false);
     }
 
+    const props = {customStyle:{height: "100%", padding: "10px", fontSize: "0.875rem"}, text, theme:irBlack, showLineNumbers: true, language:"html"}
+
     return (
         <div className="relative flex flex-col pt-[40px] gap-4">
             <h1 className="text-white text-3xl">Insert The Chatbot</h1>
@@ -31,7 +33,7 @@ export default function CodeSnippet({ apiKey }: {apiKey: string}) {
                 <button onClick={handleFullExample} className={`smoothe w-fit py-[10px] px-[15px] ${!fullExample ? "bg-black text-gray-500" : "bg-gray-900 text-gray-200"}`}>Full Example</button>
             </div>
             <div className="relative w-full rounded-xl overflow-hidden border-2 border-gray-700">
-                <CopyBlock customStyle={{height: "100%", padding: "10px", fontSize: "0.875rem"}} text={text} theme={irBlack} showLineNumbers={true} language="html" />
+                <CopyBlock {...props as any} />
             </div>
         </div>
     )

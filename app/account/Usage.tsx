@@ -9,7 +9,7 @@ export default function Usage({ tier, calls, count}: {tier: any, calls: any[], c
     const { name, messages_limit } = tier;
 
   // Create an object to store the count of events per day
-  const dailyCounts = {};
+  const dailyCounts: Record<string, number> = {};
   const labels = [];
   const lastDate = new Date();
   const firstDate = new Date();

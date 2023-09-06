@@ -19,7 +19,7 @@ export default async function Page(){
     return(
         <PageInfo title="Plans"> 
             <div className="relative w-full flex py-[90px] justify-center">
-                <PricingDashboard tier={subscription_tier} stripeId={stripe_id} email={email} profileId={id} />
+                <PricingDashboard tier={subscription_tier} stripeId={stripe_id!} email={email!} profileId={id!} />
             </div>  
         </PageInfo>
     )

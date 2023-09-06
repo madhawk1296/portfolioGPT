@@ -4,6 +4,8 @@ import { cookies } from 'next/headers'
 import { Database } from '../../../types/supabase'
 import ApiKeyField from "./ApiKeyField";
 import CodeSnippet from "./CodeSnippet";
+import React from 'react';
+
 
 export default async function Page(){
     const supabase = createServerComponentClient<Database>({ cookies })
@@ -16,9 +18,9 @@ export default async function Page(){
                 <h1>Your API Key: </h1>
                 <div className="relative flex flex-col gap-4 py-[20px]">
                     <h1 className="text-white">Your API Key is used to access the Chatfolio bot on your portfolio website.</h1>
-                    <ApiKeyField apiKey={primaryKey} />
+                    <ApiKeyField apiKey={primaryKey!} />
                 </div>
-                <CodeSnippet apiKey={primaryKey} />
+                <CodeSnippet apiKey={primaryKey!} />
             </div>
         </PageInfo>
     )

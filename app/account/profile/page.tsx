@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import formatDollar from "@/lib/formatDollar";
 import Link from "next/link";
 import Options from "./Options";
+import React from 'react';
 
 
 export default async function Page() {
@@ -17,7 +18,7 @@ export default async function Page() {
     `)
 
     const { subscription_tier, stripe_id, email, id } = profiles?.[0] || {};
-    const { name, monthly_cost } = subscription_tier!;
+    const { name, monthly_cost } = subscription_tier! as any;
 
     return (
         <PageInfo title="Profile">
@@ -25,7 +26,7 @@ export default async function Page() {
                 <h1 className="text-gray-100 text-2xl ">Current Plan</h1>
                 <h1 className="w-fit py-[5px] px-[10px] bg-gray-700 rounded-md font-mediumbold tracking-wide text-sm text-gray-100">{name} Tier</h1>
                 <h1 className="text-white tracking-wide text-lg font-medium">{formatDollar(monthly_cost)} per Month</h1>
-                <Options stripeId={stripe_id}  />
+                <Options stripeId={stripe_id!}  />
             </div>
         </PageInfo>
     )

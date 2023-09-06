@@ -10,7 +10,6 @@ import ChatbotContext from "@/components/hooks/ChatbotContext";
 
 export default function Chatbot(){
     const { welcomeMessage, chatbotColor, removeBranding } = useContext(ChatbotContext);
-    const color = `bg-[${chatbotColor}]`;
 
     const defaultVal = [{sender: "bot", message: welcomeMessage}];
     const [messageHistory, setMessageHistory] = useState<MessageType[]>(defaultVal)

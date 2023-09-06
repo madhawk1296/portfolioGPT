@@ -13,7 +13,7 @@ export default async function saveCustomizations(welcomeMessage: string, chatbot
             chatbot_color: chatbotColor,
             remove_branding: removeBranding
         }) 
-        .eq("id", user?.id)
+        .eq("id", user?.id!)
     }catch(e: any){
         alert(e.message)
         return {

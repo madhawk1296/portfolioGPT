@@ -14,11 +14,7 @@ export default function Login() {
     
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const session = await googleLogin();
-
-        if(session) {
-            router.push("/account") 
-        }
+        await googleLogin();
     }
     
     const handleEmail = (value: string) => {

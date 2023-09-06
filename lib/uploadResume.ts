@@ -11,7 +11,7 @@ export default async function uploadResume(resumeInfo: string){
         .update({
             info: resumeInfo
         }) 
-        .eq("id", user?.id)
+        .eq("id", user?.id!)
     }catch(e: any){
         alert(e.message)
 

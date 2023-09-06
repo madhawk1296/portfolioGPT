@@ -15,7 +15,7 @@ export default async function loginUser(email: string, password: string) {
         }
 
         return(data?.session)
-    } catch(e) {
+    } catch(e: any) {
         alert(e.message)
     }
 
