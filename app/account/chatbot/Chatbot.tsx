@@ -60,9 +60,9 @@ export default function Chatbot(){
 
     return(
         <div className="flex flex-col gap-[20px]">
-            <div className={`relative w-[400px] h-[500px] bg-gray-200 rounded-md flex flex-col smoothe ${chatHidden ? "opacity-0" : "opacity-100"}`}>
+            <div className={`relative w-[400px] h-[500px] bg-gray-200 rounded-md flex flex-col smoothe overflow-hidden ${chatHidden ? "opacity-0" : "opacity-100"}`}>
                 <ChatHistory messageHistory={messageHistory} loading={loading} chatbotColor={chatbotColor} />
-                <form onSubmit={sendMessage} className={`relative w-full bg-black h-[50px] flex border border-gray-300 rounded-md overflow-hidden smoothe shadow-md hover:shadow-lg bg-white`}>
+                <form onSubmit={sendMessage} className={`relative w-full bg-black h-[50px] flex border border-gray-300 rounded-t-md overflow-hidden smoothe shadow-md hover:shadow-lg bg-white`}>
                     <input value={currentMessage} onChange={changeMessage} type='text' placeholder='Ask me anything...' className={`w-full px-[10px] outline-none`} />
                     <button type='submit' style={{backgroundColor: chatbotColor}} className="h-full text-white font-medium tracking-wider px-[10px] smoothe opacity-80 hover:opacity-100 ">
                         Submit
