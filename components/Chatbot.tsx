@@ -32,7 +32,7 @@ export default function Chatbot({defaultMessage = null, landingPage = false}: {d
             const response = await callChatbot(adjustedHistory, landingPage)
             addMessageToHistory('bot', response)
         }catch(e: any){
-            alert(e.message)
+            alert(e)
         }finally{
             setLoading(false)
         }

@@ -62,17 +62,17 @@ export default function Chatbot(){
         <div className="flex flex-col gap-[20px]">
             <div className={`relative w-[400px] h-[500px] bg-gray-200 rounded-md flex flex-col smoothe ${chatHidden ? "opacity-0" : "opacity-100"}`}>
                 <ChatHistory messageHistory={messageHistory} loading={loading} chatbotColor={chatbotColor} />
-                {!removeBranding && <div className="relative w-full p-[10px] flex justify-center">
-                    <h1 className="w-fit font-medium text-gray-500 tracking-wide">
-                        Powered by <a className="text-gray-600 underline" href="https://chatfolio.org" target="_blank">Chatfolio</a>
-                    </h1>
-                </div>}
                 <form onSubmit={sendMessage} className={`relative w-full bg-black h-[50px] flex border border-gray-300 rounded-md overflow-hidden smoothe shadow-md hover:shadow-lg bg-white`}>
                     <input value={currentMessage} onChange={changeMessage} type='text' placeholder='Ask me anything...' className={`w-full px-[10px] outline-none`} />
                     <button type='submit' style={{backgroundColor: chatbotColor}} className="h-full text-white font-medium tracking-wider px-[10px] smoothe opacity-80 hover:opacity-100 ">
                         Submit
                     </button>
                 </form>
+                {!removeBranding && <div className="relative w-full py-[5px] px-[10px] flex justify-center bg-gray-100">
+                    <h1 className="w-fit font-medium text-gray-500 tracking-wide text-[0.9rem]">
+                        Powered by <a className="text-gray-600 underline" href="https://chatfolio.org" target="_blank">Chatfolio</a>
+                    </h1>
+                </div>}
             </div>
             <button style={{backgroundColor: chatbotColor}} onClick={chatHidden ? openChat : closeChat} className={`self-end w-[60px] h-[60px] rounded-full shadow-lg p-[13px] flex items-center`}>{chatHidden ? <Robot /> : <Arrow />}</button>
         </div>
