@@ -1,6 +1,7 @@
 import getProduct from "./getProduct";
 import getProductByStripeId from "./getProductByStripeId";
 import getSubscription from "./getSubscription";
+import trackCheckoutEvent from "./trackCheckoutEvent";
 import updateUserProduct from "./updateUserProduct";
 
 export default async function handleCheckoutCompleted(completed: any) {
@@ -11,4 +12,5 @@ export default async function handleCheckoutCompleted(completed: any) {
     const { supabaseId } = getProductByStripeId(productId)!;
 
     await updateUserProduct(client_reference_id, supabaseId, customer);
+    await trackCheckoutEvent(supabaseId);
 }

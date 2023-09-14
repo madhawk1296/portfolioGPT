@@ -18,7 +18,6 @@ export async function POST(req: NextRequest){
     switch (event.type) {
         case 'checkout.session.completed':
             const checkoutCompleted = event.data.object;
-
             try {
                 await handleCheckoutCompleted(checkoutCompleted);
                 return new NextResponse('Handled Session Completed', { status: 200})
