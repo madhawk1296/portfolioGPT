@@ -3,6 +3,7 @@ import DashHeader from "./DashHeader";
 import Sidebar from "./Sidebar";
 import { cookies } from 'next/headers'
 import { Database } from '../../types/supabase'
+import TrackLogin from "./TrackLogin";
 
 
 export default async function layout({children}: {children: React.ReactNode}){
@@ -19,6 +20,7 @@ export default async function layout({children}: {children: React.ReactNode}){
                 <Sidebar user={user!}/>
                 {children}
             </div>
+            <TrackLogin />
         </div>
     )
 }

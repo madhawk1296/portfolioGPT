@@ -1,4 +1,3 @@
-
 import Chatbot from './Chatbot'
 import { Session } from '@supabase/auth-helpers-nextjs'
 import ChatbotTitle from './ChatbotTitle'

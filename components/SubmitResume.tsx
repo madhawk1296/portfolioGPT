@@ -4,6 +4,7 @@ import uploadResume from "@/lib/uploadResume"
 import { useRouter } from "next/navigation"
 import { ChangeEvent, useState } from "react"
 import wordsCount from 'words-count';
+import posthog from 'posthog-js';
 
 export default function SubmitResume({ wordLimit }: {wordLimit: number}){
     const [resumeInfo, setResumeInfo] = useState<string>('');
@@ -18,6 +19,8 @@ export default function SubmitResume({ wordLimit }: {wordLimit: number}){
     const submitResume = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        posthog.capture('user submits resume');
+        
         try{
             const {data, error} = await uploadResume(resumeInfo)
 
