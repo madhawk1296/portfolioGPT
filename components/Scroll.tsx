@@ -27,13 +27,13 @@ export default function Scroll() {
 
   const handleClick = () => {
     window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
+      top: window.innerHeight,
+      behavior: "smooth"
     })
   }
 
   return (
-    <div className="absolute w-full flex justify-center bottom-[20px]">
+    <div className="absolute w-full flex justify-center bottom-[100px] md:bottom-[20px]">
       <h1
         onClick={handleClick} className="w-fit text-lg text-white font-semibold tracking-wide smoothe cursor-pointer"
         style={{ opacity: scrollOpacity }}

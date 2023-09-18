@@ -7,7 +7,6 @@ import { NextRequest, NextResponse } from "next/server";
 import validateApiCall from "@/lib/validateApiCall";
 
 export async function OPTIONS(req: NextRequest) {
-    console.log('options');
     const response = new NextResponse();
 
     // Setting CORS headers for all responses

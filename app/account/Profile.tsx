@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Profile({user}: {user: User}){
-    const { email, user_metadata } = user;
-    const { name, picture } = user_metadata;
+    const { email, user_metadata } = user || {};
+    const { name, picture } = user_metadata || {};
 
     return(
         <Link href="/account/profile">

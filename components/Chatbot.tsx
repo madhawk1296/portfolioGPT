@@ -5,6 +5,8 @@ import ChatHistory from "./ChatHistory";
 import callChatbot from "@/lib/callChatbot";
 import { MessageType } from "@/types/MessageType";
 
+//Hello!! 
+
 export default function Chatbot({defaultMessage = null, landingPage = false}: {defaultMessage?: string | null, landingPage?: boolean}){
     const defaultVal = defaultMessage ? [{sender: "bot", message: defaultMessage}] : []
     const [messageHistory, setMessageHistory] = useState<MessageType[]>(defaultVal)
@@ -14,6 +16,9 @@ export default function Chatbot({defaultMessage = null, landingPage = false}: {d
     const changeMessage = (e: ChangeEvent<HTMLInputElement>) => {
         setCurrentMessage(e.target.value)
     }
+
+    // :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) 
+
 
     const addMessageToHistory = (sender: string, message: string) => {
         setMessageHistory((prevHistory) => prevHistory.concat({ sender, message }));
@@ -26,6 +31,8 @@ export default function Chatbot({defaultMessage = null, landingPage = false}: {d
         const adjustedHistory = messageHistory.concat({sender: "user", message: tempMessage})
         addMessageToHistory('user', currentMessage)
         setCurrentMessage('')
+        
+        // :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) 
 
         try{
             setLoading(true)
@@ -37,9 +44,11 @@ export default function Chatbot({defaultMessage = null, landingPage = false}: {d
             setLoading(false)
         }
     }
+
+    // :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) 
     
     return(
-        <div className={`relative w-[400px] h-[575px] ${landingPage ? "bg-gray-200" : "bg-black border border-gray-500"} rounded-md flex flex-col gap-2`}>
+        <div className={`relative w-[400px] h-[500px] ${landingPage ? "bg-gray-200" : "bg-black border border-gray-500"} rounded-md flex flex-col gap-2`}>
             <ChatHistory messageHistory={messageHistory} loading={loading}/>
             <form onSubmit={sendMessage} className={`relative w-full bg-black h-[50px] flex border ${landingPage ? "border-gray-300" : "border-gray-500"} rounded-md overflow-hidden smoothe shadow-md hover:shadow-lg bg-white`}>
                 <input value={currentMessage} onChange={changeMessage} type='text' placeholder='Ask me anything...' className={`w-full px-[10px] outline-none ${!landingPage && "bg-black text-white"}`} />

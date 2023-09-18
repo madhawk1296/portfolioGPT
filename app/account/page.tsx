@@ -14,7 +14,7 @@ export default async function Account() {
       subscription_tier(*)
   `);
 
-  const { info, id, subscription_tier } = profiles?.[0] as any;
+  const { info, id, subscription_tier } = profiles?.[0] || {} as any;
   const {data, count} = await getMonthlyCalls(supabase, id);
 
   return (
