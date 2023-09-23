@@ -1,11 +1,11 @@
 import posthogClient from './posthogClient'
 
-export default async function trackCheckoutEvent(userId: string) {
+export default async function trackChatbotInstalled(userId: string) {
     const { client, shutdown } = posthogClient();
 
     client.capture({
         distinctId: userId,
-        event: 'user completes checkout',
+        event: 'user installs chatbot',
     });
 
     await shutdown();

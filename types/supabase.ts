@@ -11,21 +11,30 @@ export interface Database {
     Tables: {
       api_calls: {
         Row: {
+          api_email: string | null
           api_key: string | null
           created_at: string
           id: number
+          new_api_email: string | null
+          user_email: string | null
           user_id: string | null
         }
         Insert: {
+          api_email?: string | null
           api_key?: string | null
           created_at?: string
           id?: number
+          new_api_email?: string | null
+          user_email?: string | null
           user_id?: string | null
         }
         Update: {
+          api_email?: string | null
           api_key?: string | null
           created_at?: string
           id?: number
+          new_api_email?: string | null
+          user_email?: string | null
           user_id?: string | null
         }
         Relationships: [
@@ -83,6 +92,9 @@ export interface Database {
           email: string | null
           id: string
           info: string | null
+          installed_chatbot: boolean
+          name: string | null
+          onboarded: boolean
           remove_branding: boolean | null
           stripe_id: string | null
           subscription_tier: string | null
@@ -94,6 +106,9 @@ export interface Database {
           email?: string | null
           id: string
           info?: string | null
+          installed_chatbot?: boolean
+          name?: string | null
+          onboarded?: boolean
           remove_branding?: boolean | null
           stripe_id?: string | null
           subscription_tier?: string | null
@@ -105,6 +120,9 @@ export interface Database {
           email?: string | null
           id?: string
           info?: string | null
+          installed_chatbot?: boolean
+          name?: string | null
+          onboarded?: boolean
           remove_branding?: boolean | null
           stripe_id?: string | null
           subscription_tier?: string | null

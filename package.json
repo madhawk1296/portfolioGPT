@@ -20,6 +20,8 @@
     "@vercel/analytics": "^1.0.2",
     "autoprefixer": "10.4.14",
     "chart.js": "^4.3.3",
+    "convertapi": "^1.12.0",
+    "convertapi-js": "~1.1",
     "google-auth-library": "^9.0.0",
     "micro": "^10.0.1",
     "next": "13.4.10",

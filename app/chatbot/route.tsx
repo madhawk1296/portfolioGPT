@@ -2,6 +2,7 @@ import getChatbot from "@/lib/getChatbot";
 import getSupabaseAdmin from "@/lib/getSupabaseAdmin";
 import getUserByApiKey from "@/lib/getApiKey";
 import { NextRequest, NextResponse } from "next/server";
+import logChatbot from "@/lib/logChatbot";
 
 export async function GET(req: NextRequest){
     const key = req.nextUrl.searchParams.get("id");
@@ -13,6 +14,8 @@ export async function GET(req: NextRequest){
         const chatbot = getChatbot(key, userInfo);
         const res = new NextResponse(chatbot);
         res.headers.set('Content-Type', 'text/javascript');
+
+        logChatbot(userInfo);
 
         return res
     }

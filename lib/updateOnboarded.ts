@@ -1,7 +1,7 @@
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import { Database } from '../types/supabase'
+import { Database } from "@/types/supabase";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export default async function uploadResume(resumeInfo: string){
+export default async function updateOnboarded() {
     const supabase = createClientComponentClient<Database>()
     const { data: {user} } = await supabase.auth.getUser();
 
@@ -9,7 +9,7 @@ export default async function uploadResume(resumeInfo: string){
         return await supabase
         .from("profiles")
         .update({
-            info: resumeInfo
+            onboarded: true
         }) 
         .eq("id", user?.id!)
     }catch(e: any){
