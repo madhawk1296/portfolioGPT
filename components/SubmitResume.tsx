@@ -18,8 +18,6 @@ export default function SubmitResume({ wordLimit }: {wordLimit: number}){
 
     const submitResume = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
-        posthog.capture('user submits resume');
         
         try{
             const {data, error} = await uploadResume(resumeInfo)
