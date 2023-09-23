@@ -1,14 +1,13 @@
 'use server'
 
 import convertResume from "@/lib/convertResume";
-import routeUser from "@/lib/routeUser";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 
  export async function saveResume(formData: FormData) {
-    const resume = await formData.get('resume')!;
+    const resume = await formData.get('resume')! as File;
 
     convertResume(resume);
 

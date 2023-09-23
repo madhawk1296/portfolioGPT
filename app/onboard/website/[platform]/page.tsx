@@ -29,5 +29,5 @@ export default async function Platform({ params }: { params: { platform: string}
         "custom": <Custom apiKey={primaryKey!} />
 
     }
-    return platformComponents[currentPlatform];
+    return <>{platformComponents[currentPlatform]}</>;
 }
