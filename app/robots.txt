@@ -1,0 +1,12 @@
+# *
+User-Agent: *
+Allow: /
+Disallow: /onboard
+Disallow: /account
+Disallow: /test
+
+# Host
+Host: https://chatfolio.org
+
+# Sitemaps
+Sitemap: https://chatfolio.org/sitemap.xml
