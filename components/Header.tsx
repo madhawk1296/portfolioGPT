@@ -9,7 +9,7 @@ export default function Header(){
                 <div className="relative h-[40px] w-[40px]">   
                     <Robot />
                 </div>
-                <h1 className="text-white text-4xl font-semibold tracking-wider">chatfolio</h1>
+                <h2 className="text-white text-4xl font-semibold tracking-wider">chatfolio</h2>
             </div>
             <div className="relative flex gap-4">
                 <LoginButton/>

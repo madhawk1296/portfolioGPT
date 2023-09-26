@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Chatfolio - a chatbot for your portfolio site',
+  title: 'Chatfolio | AI Chatbot for Your Portfolio Site',
   description: 'Chatfolio is a chatbot for your portfolio website that can answer any questions about your resume, skills, experience ...etc',
 }
 

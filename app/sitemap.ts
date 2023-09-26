@@ -5,6 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://chatfolio.org',
       lastModified: new Date(),
+    },
+    {
+      url: 'https://chatfolio.org/blog/add-chatbot',
+      lastModified: new Date()
     }
   ]
 }

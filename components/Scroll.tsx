@@ -34,12 +34,12 @@ export default function Scroll() {
 
   return (
     <div className="absolute w-full flex justify-center bottom-[100px] md:bottom-[20px]">
-      <h1
+      <h4
         onClick={handleClick} className="w-fit text-lg text-white font-semibold tracking-wide smoothe cursor-pointer"
         style={{ opacity: scrollOpacity }}
       >
         ↓ Scroll For More
-      </h1>
+      </h4>
     </div>
   );
 }

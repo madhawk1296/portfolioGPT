@@ -8,8 +8,8 @@ export default function Example({ example }: {example: ExampleType}) {
             <div className="md:w-1/2 h-full flex flex-row md:flex-col md:px-[15px] gap-3">
                 <Image className="rounded-xl border-2 border-gray-700" alt="Example Profile" height={100} width={100} src={image} /> 
                 <div className="flex flex-col gap-1 min-w-[150px]">
-                    <h1 className="text-3xl font-medium tracking-wider text-white w-fit">{name}</h1>
-                    <h1 className="text-xl tracking-wider text-gray-300 w-fit">{title}</h1>
+                    <h3 className="text-3xl font-medium tracking-wider text-white w-fit">{name}</h3>
+                    <h4 className="text-xl tracking-wider text-gray-300 w-fit">{title}</h4>
                 </div> 
             </div>
             <div className="md:w-1/2 h-full flex flex-col ">

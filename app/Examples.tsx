@@ -48,7 +48,7 @@ export default function Examples() {
 
     return (
         <div className="relative w-full bg-blue-950 flex flex-col gap-[50px] items-center py-[60px]">
-            <h1 className="w-fit text-3xl md:text-5xl font-medium md:font-medium tracking-wider text-white text-center px-[20px]">Chatfolio works with any resume</h1>
+            <h2 className="w-fit text-3xl md:text-5xl font-medium md:font-medium tracking-wider text-white text-center px-[20px]">Chatfolio works with any resume</h2>
             <div className="relative w-full flex flex-col md:flex-row gap-10 md:gap-[100px] justify-center md:items-center">
                 <div className="w-full md:w-[300px] md:h-[500px] flex md:flex-col gap-4 overflow-scroll px-[20px]">
                     <ExampleTab example={examples[0]} changeTab={changeTab} selected={currentTab.name == examples[0].name} />

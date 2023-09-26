@@ -8,8 +8,8 @@ export default function Panel({ title, step, detail }: {title: string, step: str
             <div className="w-[40px] h-[40px]">
                 {step == "customize" ? <Brush /> : step == "upgrade" ? <Rocket /> : <Upload />}
             </div>
-            <h1 className="w-fit text-xl md:text-2xl text-white font-medium tracking-wide text-center ">{title}</h1>
-            <h1 className="w-fit text-center text-gray-100 md:text-lg tracking-wide md:font-light text-lg px-[15px] md:px-[5px]">{detail}</h1>
+            <h2 className="w-fit text-xl md:text-2xl text-white font-medium tracking-wide text-center ">{title}</h2>
+            <h3 className="w-fit text-center text-gray-100 md:text-lg tracking-wide md:font-light text-lg px-[15px] md:px-[5px]">{detail}</h3>
         </div>
     )
 }

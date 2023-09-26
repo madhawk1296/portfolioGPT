@@ -17,9 +17,9 @@ export default function Home() {
         <div className="relative flex justify-center">
           <div className="relative flex flex-col items-center w-full md:w-[800px] px-[20px] pt-[100px] gap-4">
             <h1 className="text-white text-3xl md:text-6xl text-center font-semibold tracking-wide md:w-[600px] leading-[1.1] ">ChatGPT for Your Portfolio Website</h1>
-            <h1 className="text-white text-xl md:text-2xl text-center max-w-[600px] tracking-wide font">
+            <h2 className="text-white text-xl md:text-2xl text-center max-w-[600px] tracking-wide font">
               Elevate your portfolio site with an engaging chatbot trained on your resume.
-            </h1>
+            </h2>
             <MainPageButton/>
             <ProductHuntButton />
           </div>
@@ -35,7 +35,7 @@ export default function Home() {
       <div className="relative w-full flex flex-col items-center bg-blue-600 py-[20px] md:py-[80px] gap-5">
         <Benefits /> 
         <div className="flex flex-col gap-4 items-center pb-[10px]">
-          <h1 className="text-2xl font-semibold w-fit text-white">Get Started for Free</h1>
+          <h3 className="text-2xl font-semibold w-fit text-white">Get Started for Free</h3>
           <FinalButton />
         </div>            
       </div>
