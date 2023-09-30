@@ -1,7 +1,7 @@
 'use client'
 
 import React, { ChangeEvent, FormEventHandler, useContext, useEffect, useState } from "react";
-import callChatbot from "@/lib/callChatbot";
+import callChatbot from "@/lib/legacy/callChatbot";
 import { MessageType } from "@/types/MessageType";
 import ChatHistory from "@/components/ChatHistory";
 import Robot from "@/components/icons/Robot";
