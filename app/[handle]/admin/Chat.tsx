@@ -10,7 +10,7 @@ export type MessageType = {
     sender: 'user' | 'bot'
 }
 
-export default function Chat({ user_id }: Tables<'users'>) {
+export default function Chat({ user_id }: { user_id: string}) {
     const [messageHistory, setMessageHistory] = useState<MessageType[]>([]) 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 

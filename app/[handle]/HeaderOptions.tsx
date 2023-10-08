@@ -2,9 +2,9 @@ import dosis from "@/fonts/dosis";
 import { User } from "@supabase/gotrue-js";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
-import { UserType } from "./Header";
+import { Tables } from "@/types/supabase";
 
-export default function HeaderOptions({ user }: { user: UserType | null }) {
+export default function HeaderOptions({ user }: { user: Tables<'users'> | null}) {
     return (user) ? (
         <div className={`flex gap-4 items-center ${dosis.medium}`}>
             <LogoutButton />

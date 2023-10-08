@@ -6,7 +6,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 
 export default function Name({ name: currentName }: { name: string | null}) {
     const router = useRouter();
-    const [name, setName] = useState<string | null>(currentName);
+    const [name, setName] = useState<string>(currentName || "");
     const [isFocused, setIsFocused] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null);
     const disabled = !name;

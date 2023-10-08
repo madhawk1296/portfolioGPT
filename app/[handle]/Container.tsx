@@ -15,7 +15,7 @@ export default function Container({ user }: { user: Tables<'users'> }) {
                 <div className="relative w-full h-full flex flex-col gap-2">
                     <div className="relative flex w-full h-fit ">
                         <div className="relative w-full h-fit flex flex-col ">
-                            <Profile user_id={user_id} display_name={display_name} tag={tag} tag_color={tag_color} profile_picture={profile_picture} />
+                            <Profile userId={user_id!} name={display_name} tag={tag} tagColor={tag_color} profileImage={profile_picture} />
                             <Bio bio={bio} />
                         </div>
                         <Links links={links} />
