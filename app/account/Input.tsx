@@ -1,7 +1,14 @@
-export default function Input({ placeholder, isCheck=false, isPassword=false }: { placeholder?: string, isCheck?: boolean, isPassword?: boolean }) {
+import { ChangeEvent } from "react"
+
+export default function Input({ value, placeholder, isCheck=false, isPassword=false, handleChange, minLength }: { value: string, placeholder?: string, isCheck?: boolean, isPassword?: boolean, handleChange: (value?: string) => void, minLength?: number }) {
+
+    const handleInputchange = (e: ChangeEvent<HTMLInputElement>) => {
+        handleChange(e.target.value);
+    }
+
     return isCheck ? (
-        <input type="checkbox" />
+        <input required value={value} onChange={() => handleChange()} type="checkbox" />
     ) : (
-        <input type={isPassword ? "password" : "text"} className="h-[50px] w-full rounded-xl border-2 border-gray-400 p-[10px] outline-none focus:border-gray-600 smoothe text-gray-800" placeholder={placeholder}  />
+        <input value={value} minLength={minLength} required onChange={handleInputchange}  type={isPassword ? "password" : "text"} className="h-[50px] w-full rounded-xl border-2 border-gray-400 p-[10px] outline-none focus:border-gray-600 smoothe text-gray-800" placeholder={placeholder}  />
     )
 }

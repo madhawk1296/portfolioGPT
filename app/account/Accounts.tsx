@@ -1,16 +1,20 @@
+'use client'
+
 import dosis from "@/fonts/dosis";
 import Account from "./Account";
+import { Provider } from "@supabase/gotrue-js";
+import connectAccount from "@/actions/connectAccount";
 
 export type AccountType = {
-    name: string,
+    name: Provider,
     title: string,
     image: string
 }
 
 export default function Accounts() {
-    const accounts = [
+    const accounts: AccountType[] = [
         {
-            name: "x",
+            name: "twitter",
             title: "X",
             image: "/x.png"
         },
@@ -36,11 +40,18 @@ export default function Accounts() {
         }
     ];
 
+    const chooseAccount = async (provider: Provider) => {
+        const formData = new FormData()
+        formData.append("provider", provider); 
+
+        await connectAccount(formData);
+    }
+        
     return (
         <div className="w-full flex flex-col gap-2">
-            <h1 className={`${dosis.medium} tracking-wide text-gray-600`}>Or connect with</h1>
+            <h1 className={`${dosis.medium} tracking-wider text-gray-600`}>Or connect with</h1>
             <div className="flex flex-wrap gap-4">
-                {accounts.map((account, index) => <Account key={index} account={account} />)}
+                {accounts.map((account, index) => <Account chooseAccount={chooseAccount} key={index} account={account} />)}
             </div>
         </div>
     )

@@ -9,141 +9,6 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      api_calls: {
-        Row: {
-          api_email: string | null
-          api_key: string | null
-          created_at: string
-          id: number
-          new_api_email: string | null
-          user_email: string | null
-          user_id: string | null
-        }
-        Insert: {
-          api_email?: string | null
-          api_key?: string | null
-          created_at?: string
-          id?: number
-          new_api_email?: string | null
-          user_email?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          api_email?: string | null
-          api_key?: string | null
-          created_at?: string
-          id?: number
-          new_api_email?: string | null
-          user_email?: string | null
-          user_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "api_calls_api_key_fkey"
-            columns: ["api_key"]
-            referencedRelation: "api_keys"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "api_calls_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      api_keys: {
-        Row: {
-          active: boolean | null
-          created_at: string | null
-          id: string
-          key: string | null
-          updated_at: string | null
-          user_id: string
-        }
-        Insert: {
-          active?: boolean | null
-          created_at?: string | null
-          id?: string
-          key?: string | null
-          updated_at?: string | null
-          user_id: string
-        }
-        Update: {
-          active?: boolean | null
-          created_at?: string | null
-          id?: string
-          key?: string | null
-          updated_at?: string | null
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "api_keys_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      profiles: {
-        Row: {
-          chatbot_color: string | null
-          email: string | null
-          id: string
-          info: string | null
-          installed_chatbot: boolean
-          name: string | null
-          onboarded: boolean
-          remove_branding: boolean | null
-          stripe_id: string | null
-          subscription_tier: string | null
-          updated_at: string | null
-          welcome_message: string | null
-        }
-        Insert: {
-          chatbot_color?: string | null
-          email?: string | null
-          id: string
-          info?: string | null
-          installed_chatbot?: boolean
-          name?: string | null
-          onboarded?: boolean
-          remove_branding?: boolean | null
-          stripe_id?: string | null
-          subscription_tier?: string | null
-          updated_at?: string | null
-          welcome_message?: string | null
-        }
-        Update: {
-          chatbot_color?: string | null
-          email?: string | null
-          id?: string
-          info?: string | null
-          installed_chatbot?: boolean
-          name?: string | null
-          onboarded?: boolean
-          remove_branding?: boolean | null
-          stripe_id?: string | null
-          subscription_tier?: string | null
-          updated_at?: string | null
-          welcome_message?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "profiles_id_fkey"
-            columns: ["id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "profiles_subscription_tier_fkey"
-            columns: ["subscription_tier"]
-            referencedRelation: "subscription_tiers"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       subscription_tiers: {
         Row: {
           chatbot_personalities_included: boolean
@@ -183,6 +48,61 @@ export interface Database {
         }
         Relationships: []
       }
+      users: {
+        Row: {
+          banner_color: string | null
+          banner_image: string | null
+          bio: string | null
+          created_at: string
+          display_name: string | null
+          email: string | null
+          handle: string | null
+          id: number
+          links: Json[]
+          profile_picture: string | null
+          tag: string | null
+          tag_color: string
+          user_id: string | null
+        }
+        Insert: {
+          banner_color?: string | null
+          banner_image?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          handle?: string | null
+          id?: number
+          links?: Json[]
+          profile_picture?: string | null
+          tag?: string | null
+          tag_color?: string
+          user_id?: string | null
+        }
+        Update: {
+          banner_color?: string | null
+          banner_image?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          handle?: string | null
+          id?: number
+          links?: Json[]
+          profile_picture?: string | null
+          tag?: string | null
+          tag_color?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "users_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -198,3 +118,5 @@ export interface Database {
     }
   }
 }
+
+export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row']
