@@ -30,7 +30,7 @@ export default function Chat({ user_id }: Tables<'users'>) {
     return (
         <div className="relative h-full w-full flex flex-col items-center pb-[25px]">
             <ChatHistory messageHistory={messageHistory} isLoading={isLoading} />
-            <ChatForm messageHistory={messageHistory} addMessage={addMessage} isLoading={isLoading} turnLoadingOn={turnLoadingOn} turnLoadingOff={turnLoadingOff} userId={user_id} />
+            <ChatForm messageHistory={messageHistory} addMessage={addMessage} isLoading={isLoading} turnLoadingOn={turnLoadingOn} turnLoadingOff={turnLoadingOff} userId={user_id!} />
         </div>
     )
 }
