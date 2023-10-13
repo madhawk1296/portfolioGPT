@@ -11,7 +11,7 @@ export type LinkType = {
 
 export default function Links({ links }: { links: Json[]}) {
     return (
-        <div className="relative w-full flex flex-col gap-4 pt-[20px] items-end">
+        <div className="relative w-full flex flex-col gap-4 pt-[20px] items-start md:items-end">
             {links.map((link, index) => <LinkTab key={index} link={link} />)}
         </div>
     )

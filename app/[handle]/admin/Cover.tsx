@@ -45,20 +45,20 @@ export default function Cover({ userId, color, image }: { userId: string, color:
 
 
     return (
-        <div style={{ backgroundColor: color!}} className="relative w-full h-[285px] rounded-b-2xl overflow-hidden flex items-center justify-center">
+        <div style={{ backgroundColor: color!}} className="relative w-full h-[200px] md:h-[285px] rounded-b-2xl overflow-hidden flex items-center justify-center">
             {image ? (
                 <>                   
                     <Image className="w-full h-full object-cover" src={publicUrl} alt="Cover Image" fill={true} />
-                    <div className="flex items-center gap-[3px] absolute right-[25px] top-[30px] bg-gray-500 overflow-hidden shadow-md rounded-xl border-2 border-gray-500">
-                        <label className="text-sm text-gray-800 tracking-wide py-[10px] px-[10px] bg-white flex items-center gap-[2px]">
+                    <div className="flex items-center gap-[3px] absolute right-[10px] md:right-[25px] top-[15px] md:top-[30px] bg-gray-500 overflow-hidden shadow-md rounded-xl border-2 border-gray-500">
+                        <label className="text-xs md:text-sm text-gray-800 tracking-wide p-[5px] md:p-[10px] bg-white flex items-center gap-[2px]">
                             <h1>Replace</h1>
-                            <div className="relative h-[20px]">
+                            <div className="relative h-[15px] md:h-[20px]">
                                 <Picture />
                             </div>
                             <input onChange={handleFileChange} type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
                         </label>
-                        <button onClick={handleRemoveFile} className="text-sm text-red-600 tracking-wide py-[10px] px-[10px] bg-white flex items-center gap-[1px]">
-                            <div className="relative h-[20px]">
+                        <button onClick={handleRemoveFile} className="text-sm text-red-600 tracking-wide  p-[5px] md:p-[10px] bg-white flex items-center h-[26px] md:h-auto">
+                            <div className="relative h-[15px] md:h-[20px]">
                                 <Trash />
                             </div>
                         </button>

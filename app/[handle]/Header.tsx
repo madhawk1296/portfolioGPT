@@ -13,7 +13,7 @@ export default async function Header() {
     const currentUser = users?.[0] || null;
 
     return (
-        <div className="fixed top-0 bg-white w-full h-[65px] shadow bg-white flex justify-between px-[100px] items-center z-500">
+        <div className="fixed top-0 bg-white w-full h-[65px] shadow bg-white flex justify-between px-[10px] md:px-[100px] items-center z-500">
             <Link href="/">
                 <button className="flex gap-2 items-center">
                     <div className="h-[33px]">

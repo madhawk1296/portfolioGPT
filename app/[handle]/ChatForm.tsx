@@ -54,8 +54,8 @@ export default function ChatForm({ addMessage, messageHistory, isLoading, turnLo
     }
 
     return (
-        <div className={`fixed bottom-0 pb-[15px] w-full rounded-t-full bg-blue-50 flex justify-center`}>
-            <form onSubmit={handleSend} className={`-translate-y-[15px] w-[600px] bg-white border-2 rounded-xl h-[50px] shadow flex items-center pl-[15px] pr-[5px] ${isFocused ? "border-gray-600" : "border-gray-200"} smoothe flex gap-1 items-center`}>
+        <div className={`fixed bottom-0 md:pb-[15px] w-full rounded-t-full bg-blue-50 flex justify-center px-[10px]`}>
+            <form onSubmit={handleSend} className={`-translate-y-[15px] w-full md:w-fit md:w-[600px] bg-white border-2 rounded-xl h-[50px] shadow flex items-center pl-[15px] pr-[5px] ${isFocused ? "border-gray-600" : "border-gray-200"} smoothe flex gap-1 items-center`}>
                 <input value={currentMessage} onChange={handleChange} className="h-full w-full placeholder:text-gray-500 smoothe outline-none text-gray-800" placeholder="What do you want to know?" onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} />
                 <button type="submit" className="w-[30px]">
                     <Plane isFocused={isFocused} />

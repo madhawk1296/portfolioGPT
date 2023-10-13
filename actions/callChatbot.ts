@@ -29,9 +29,6 @@ export async function callChatbot(formData: FormData) {
         const { data: users, error } = await supabase.from('users').select().eq("user_id", userId);
         currentUser = users?.[0]!
 
-        console.log(users)
-
-
         if(error) {
             throw new Error (error.message)
         }

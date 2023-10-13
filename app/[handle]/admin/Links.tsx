@@ -80,10 +80,10 @@ export default function Links({ links }: { links: Json[]}) {
     } 
 
     return (
-        <div className="relative w-full flex flex-col gap-4 pt-[20px] items-end">
+        <div className="relative w-full flex flex-col gap-4 pt-[20px] items-start md:items-end">
             {links.map((link, index) => <LinkTab key={index} index={index} link={link} />)}
             {isActive ? (
-                <form onSubmit={handleSubmit} className="h-fit w-[200px] p-[10px] flex flex-col gap-2 relative border-2 rounded-xl bg-white" >
+                <form onSubmit={handleSubmit} className="h-fit md:w-[200px] p-[10px] flex flex-col gap-2 relative border-2 rounded-xl bg-white" >
                     <h1 className="text-gray-800">Link Type</h1>
                     <select onChange={handleLinkType} value={linkType} className="outline-none h-[35px] aspect-square border-2 border-gray-500 rounded-lg px-[10px]">
                         {linkTypes.map((linkType, index) => <LinkTypeOption key={index} linkType={linkType} />)}

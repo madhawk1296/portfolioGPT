@@ -56,6 +56,7 @@ export interface Database {
           created_at: string
           display_name: string | null
           email: string | null
+          github: Json | null
           handle: string | null
           id: number
           links: Json[]
@@ -71,6 +72,7 @@ export interface Database {
           created_at?: string
           display_name?: string | null
           email?: string | null
+          github?: Json | null
           handle?: string | null
           id?: number
           links?: Json[]
@@ -86,6 +88,7 @@ export interface Database {
           created_at?: string
           display_name?: string | null
           email?: string | null
+          github?: Json | null
           handle?: string | null
           id?: number
           links?: Json[]

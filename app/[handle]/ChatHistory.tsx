@@ -6,7 +6,7 @@ export default function ChatHistory({ messageHistory, isLoading }: {messageHisto
     const history = isLoading ? messageHistory.concat({sender: "bot", content: "..."})  : messageHistory
 
     return (
-        <div className="w-[600px] flex flex-col gap-2 pb-[100px]">
+        <div className="w-full md:w-[600px] flex flex-col gap-2 pb-[100px]">
             {history.map((message, index) => <Message key={index} message={message} />)}
         </div>
     )
