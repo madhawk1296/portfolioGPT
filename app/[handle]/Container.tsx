@@ -1,9 +1,9 @@
+import { Tables } from "@/types/tables";
 import Bio from "./Bio";
 import Chat from "./Chat";
 import Cover from "./Cover";
 import Links from "./Links";
 import Profile from "./Profile";
-import { Tables } from "@/types/supabase";
 
 export default function Container({ user }: { user: Tables<'users'> }) {
     const { display_name, email, handle, tag, tag_color, bio, banner_color, banner_image, profile_picture, links, user_id } = user;

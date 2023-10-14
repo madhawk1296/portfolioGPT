@@ -3,7 +3,6 @@
 import ChatHistory from "./ChatHistory";
 import ChatForm from "./ChatForm";
 import { useState } from "react";
-import { Tables } from "@/types/supabase";
 import { GithubInputType } from "@/tools/Integrate";
 
 export type MessageType = {

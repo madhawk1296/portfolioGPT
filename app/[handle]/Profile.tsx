@@ -1,5 +1,4 @@
 import dosis from "@/fonts/dosis";
-import { Tables } from "@/types/supabase";
 import Image from "next/image";
 
 export default function Profile({ userId, name, tag, tagColor, profileImage }: { userId: string, name: string | null, tag: string | null, profileImage: string | null, tagColor: string }) {

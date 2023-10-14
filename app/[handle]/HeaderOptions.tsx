@@ -2,7 +2,7 @@ import dosis from "@/fonts/dosis";
 import { User } from "@supabase/gotrue-js";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
-import { Tables } from "@/types/supabase";
+import { Tables } from "@/types/tables";
 
 export default function HeaderOptions({ user }: { user: Tables<'users'> | null}) {
     return (user) ? (

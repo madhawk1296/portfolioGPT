@@ -2,9 +2,10 @@
 
 import { MessageType } from "@/app/[handle]/Chat";
 import { Configuration, OpenAIApi } from "openai";
-import { Database, Tables } from '@/types/supabase'
+import { Database } from '@/types/supabase'
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
+import { Tables } from "@/types/tables";
 
 
 enum ChatCompletionRequestMessageRoleEnum {
