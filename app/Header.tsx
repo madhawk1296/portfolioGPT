@@ -1,8 +1,17 @@
 import Robot from "@/components/icons/Robot";
-import dosis from "@/fonts/dosis";
+import dosis from "@/fonts/dosis";  
+import { Database } from "@/types/supabase";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import Link from "next/link";
+import HeaderOptions from "./[handle]/HeaderOptions";
 
-export default function Header() {
+export default async function Header() {
+    const supabase = createServerComponentClient<Database>({ cookies })
+    const { data: { user } } = await supabase.auth.getUser();
+    const { data: users, error } = await supabase.from('users').select().eq("user_id", user?.id!)
+    const currentUser = users?.[0] || null;
+
     return (
         <div className="sticky top-0 bg-white w-full h-[65px] bg-white flex justify-between px-[10px] md:px-[100px] items-center z-500 shadow">
             <Link href="/">
@@ -10,20 +19,10 @@ export default function Header() {
                     <div className="h-[33px]">
                         <Robot color="blue" />
                     </div>
-                    <h2 className={`text-blue-600 text-[28px] font-semibold tracking-wider ${dosis.bold}`}>chat-fu</h2>
+                    {!user && <h2 className={`text-blue-600 text-[28px] font-semibold tracking-wider ${dosis.bold}`}>chat-fu</h2>}
                 </button>
             </Link>
-            <div className={`flex gap-4 items-center ${dosis.medium}`}>
-                <Link href="/Upgrade">
-                    <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
-                </Link>
-                <Link href="/Account/Login">
-                    <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Log in</button>
-                </Link>
-                <Link href="/Account/Create">
-                    <button className="bg-blue-600 px-[10px] py-[8px] text-white tracking-wide rounded-xl shadow smoothe hover:shadow-md text">Create a Page</button>
-                </Link>
-            </div>
+            <HeaderOptions user={currentUser} />
         </div>
     )
 }

@@ -14,6 +14,9 @@ export default function HeaderOptions({ user }: { user: Tables<'users'> | null})
         </div>
     ): (
         <div className={`flex gap-4 items-center ${dosis.medium}`}>
+            <Link href="/Upgrade">
+                <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
+            </Link>
             <Link href="/Account/Login">
                 <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Log in</button>
             </Link>

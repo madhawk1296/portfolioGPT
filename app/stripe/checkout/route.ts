@@ -1,11 +1,9 @@
 'use server'
 
-import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from '@/types/supabase';
-import { RedirectType } from 'next/dist/client/components/redirect';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -34,6 +32,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
           mode: 'subscription',
           success_url: `http://localhost:3000/cristian/?success=true`,
           cancel_url: `http://localhost:3000/cristian?canceled=true`,
+          client_reference_id: user?.id
       });
 
       return NextResponse.redirect(url!);
