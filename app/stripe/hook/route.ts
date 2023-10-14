@@ -44,7 +44,7 @@ export async function POST(req: NextRequest){
                     throw new Error(error.message)
                 }
 
-                return new NextResponse('Handled Session Completed', { status: 200})
+                return new NextResponse('Handled Session Completed ' + productId, { status: 200})
             } catch(e: any) {
                 return new NextResponse(`Recieved Event, but unable to process: ${e.message}`, { status: 400 });
             }
