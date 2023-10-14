@@ -4,8 +4,6 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from "@/types/supabase";
 
-/// <reference types="stripe-event-types" />
-
 export async function POST(req: NextRequest){
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
 
@@ -34,7 +32,7 @@ export async function POST(req: NextRequest){
 
                 const productId = line_items?.data[0].price?.product as string
 
-                const supabase = createRouteHandlerClient<Database>({ cookies });
+                const supabase = createRouteHandlerClient<Database>({ cookies }, { supabaseKey: process.env.SUPABASE_SERVICE_ROLE! });
                 const { data: plans } = await supabase.from('subscription_tiers').select().eq("stripe_product_id", productId);
                 const selectedPlan = plans?.[0]!
 
