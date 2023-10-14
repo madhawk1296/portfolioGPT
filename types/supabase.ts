@@ -11,40 +11,37 @@ export interface Database {
     Tables: {
       subscription_tiers: {
         Row: {
-          chatbot_personalities_included: boolean
-          custom_themes_included: boolean
           id: string
           messages_limit: number
           monthly_cost: number
+          monthly_price_id: string | null
           name: string
-          remove_branding: boolean
-          resume_words_limit: number
-          stripe_price_id: string | null
           stripe_product_id: string | null
+          title: string
+          yearly_cost: number
+          yearly_price_id: string | null
         }
         Insert: {
-          chatbot_personalities_included: boolean
-          custom_themes_included: boolean
           id?: string
           messages_limit: number
           monthly_cost: number
+          monthly_price_id?: string | null
           name: string
-          remove_branding: boolean
-          resume_words_limit: number
-          stripe_price_id?: string | null
           stripe_product_id?: string | null
+          title: string
+          yearly_cost?: number
+          yearly_price_id?: string | null
         }
         Update: {
-          chatbot_personalities_included?: boolean
-          custom_themes_included?: boolean
           id?: string
           messages_limit?: number
           monthly_cost?: number
+          monthly_price_id?: string | null
           name?: string
-          remove_branding?: boolean
-          resume_words_limit?: number
-          stripe_price_id?: string | null
           stripe_product_id?: string | null
+          title?: string
+          yearly_cost?: number
+          yearly_price_id?: string | null
         }
         Relationships: []
       }
@@ -60,6 +57,7 @@ export interface Database {
           handle: string | null
           id: number
           links: Json[]
+          plan: string
           profile_picture: string | null
           tag: string | null
           tag_color: string
@@ -76,6 +74,7 @@ export interface Database {
           handle?: string | null
           id?: number
           links?: Json[]
+          plan?: string
           profile_picture?: string | null
           tag?: string | null
           tag_color?: string
@@ -92,12 +91,19 @@ export interface Database {
           handle?: string | null
           id?: number
           links?: Json[]
+          plan?: string
           profile_picture?: string | null
           tag?: string | null
           tag_color?: string
           user_id?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "users_plan_fkey"
+            columns: ["plan"]
+            referencedRelation: "subscription_tiers"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "users_user_id_fkey"
             columns: ["user_id"]
@@ -121,5 +127,3 @@ export interface Database {
     }
   }
 }
-
-export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row']
