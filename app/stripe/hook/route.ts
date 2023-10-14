@@ -38,13 +38,13 @@ export async function POST(req: NextRequest){
                 const { data: plans } = await supabase.from('subscription_tiers').select().eq("stripe_product_id", productId);
                 const selectedPlan = plans?.[0]!
 
-                const { error } = await supabase.from('users').update({plan: selectedPlan.id}).eq("user_id", clientReferenceId);
+                const { data, error } = await supabase.from('users').update({plan: selectedPlan.id}).eq("user_id", clientReferenceId);
 
                 if(error) {
                     throw new Error(error.message)
                 }
 
-                return new NextResponse('Handled Session Completed ' + selectedPlan.id, { status: 200})
+                return new NextResponse('Handled Session Completed ' + `user_id: ${clientReferenceId}`, { status: 200})
             } catch(e: any) {
                 return new NextResponse(`Recieved Event, but unable to process: ${e.message}`, { status: 400 });
             }
