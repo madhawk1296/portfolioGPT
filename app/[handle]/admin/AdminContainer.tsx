@@ -4,7 +4,7 @@ import Chat from "./Chat";
 import Cover from "./Cover";
 import Links from "./Links";
 import Profile from "./Profile";
-import { Tables } from "@/types/supabase";
+import { Tables } from "@/types/tables";
 
 export default function AdminContainer({ user }: { user: Tables<'users'> }) {
     const { display_name, email, handle, tag, tag_color, bio, banner_color, banner_image, profile_picture, links, user_id, github } = user;
