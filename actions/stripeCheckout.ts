@@ -14,19 +14,21 @@ export default async function stripeCheckout(formData: FormData): Promise<{data:
 
     try {
       const supabase = createServerActionClient<Database>({ cookies })
+      const { data: { user }} = await supabase.auth.getUser();
       const { data: subscription_tiers, error } = await supabase.from('subscription_tiers').select().eq("name", plan);
       const { yearly_price_id, monthly_price_id} = subscription_tiers?.[0]!
       
       const { url, id } = await stripe.checkout.sessions.create({
           line_items: [
             {
-              price: billedYearly ? yearly_price_id : monthly_price_id,
+              price: billedYearly ? yearly_price_id! : monthly_price_id!,
               quantity: 1,
             },
           ],
           mode: 'subscription',
           success_url: `http://localhost:3000/cristian?event=upgraded`,
           cancel_url: `http://localhost:3000/Upgrade/?canceled=true`,
+          client_reference_id: user?.id!
       });
 
       return { data: id, error: null}
