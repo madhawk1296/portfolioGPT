@@ -4,21 +4,31 @@ import { NextResponse } from 'next/server'
 
 import type { NextRequest } from 'next/server'
 import type { Database } from '@/types/supabase'
-import { createTokenAuth } from "@octokit/auth-token";
-import { request } from "@octokit/request"
 
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  const requestUrl = new URL(req.url)
-  const code = requestUrl.searchParams.get('code')
+  const { origin, searchParams} = new URL(req.url)
+  const code = searchParams.get('code')
 
   if (code) {
     const supabase = createRouteHandlerClient<Database>({ cookies })
-    await supabase.auth.exchangeCodeForSession(code);
+    const { data: { user, session }, error } = await supabase.auth.exchangeCodeForSession(code);
+
+    const { data: users } = await supabase.from("users").select().eq("user_id", user?.id!);
+    const currentUser = users?.[0];
+    const handle = currentUser?.handle
+
+    if(currentUser) {
+        if (handle) {
+            return NextResponse.redirect(`${origin}/${handle}`)
+        } else {
+            return NextResponse.redirect(`${origin}/Account/Onboard`)
+        }
+    }
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(requestUrl.origin)
+  return NextResponse.redirect(`${origin}/Account/Create`)
 }

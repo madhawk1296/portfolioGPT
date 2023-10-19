@@ -3,8 +3,26 @@ import Header from "../Header";
 import Tab from "./Tab";
 import { ReactNode } from "react";
 import Nav from "./Nav";
+import { redirect } from "next/navigation";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Database } from "@/types/supabase";
+import { cookies } from "next/headers";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default async function Layout({ children }: { children: ReactNode }) {
+    const supabase = createServerComponentClient<Database>({ cookies })
+    const { data: { user } } = await supabase.auth.getUser();
+    const { data: users, error } = await supabase.from("users").select().eq("user_id", user?.id!);
+    const currentUser = users?.[0];
+
+    if(currentUser) {
+        const handle = currentUser.handle
+        if (!handle) {
+            return redirect("/Account/Onboard")
+        }
+    } else {
+        return redirect('/Account/Login')
+    }
+
     return (
         <div className="w-full min-h-screen h-full flex flex-col items-center bg-gray-50">
             <Header />

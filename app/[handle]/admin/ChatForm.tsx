@@ -1,11 +1,8 @@
 import Plane from "@/components/icons/Plane";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { MessageType } from "./Chat";
-import { Message } from "postcss";
 import { callChatbot } from "@/actions/callChatbot";
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from "next/navigation";
-import connectGithub from "@/actions/connectGithub";
 import { GithubInputType } from "@/tools/Integrate";
 
 export default function ChatForm({ addMessage, messageHistory, isLoading, turnLoadingOff, turnLoadingOn, userId, github  }: { addMessage: (message: MessageType) => void, messageHistory: MessageType[], isLoading: boolean, turnLoadingOff: () => void, turnLoadingOn: () => void, userId: string, github: GithubInputType | null }) {
