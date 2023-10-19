@@ -9,7 +9,7 @@ export type MessageType = {
     sender: 'user' | 'bot'
 }
 
-export default function Chat() {
+export default function Chat({ userId }: { userId: string}) {
     const [messageHistory, setMessageHistory] = useState<MessageType[]>([]) 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -29,7 +29,7 @@ export default function Chat() {
     return (
         <div className="relative h-full w-full flex flex-col items-center pb-[25px]">
             <ChatHistory messageHistory={messageHistory} isLoading={isLoading} />
-            <ChatForm messageHistory={messageHistory} addMessage={addMessage} isLoading={isLoading} turnLoadingOn={turnLoadingOn} turnLoadingOff={turnLoadingOff} />
+            <ChatForm userId={userId} messageHistory={messageHistory} addMessage={addMessage} isLoading={isLoading} turnLoadingOn={turnLoadingOn} turnLoadingOff={turnLoadingOff} />
         </div>
     )
 }

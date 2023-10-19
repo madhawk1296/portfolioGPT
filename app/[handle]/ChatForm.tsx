@@ -5,7 +5,7 @@ import { Message } from "postcss";
 import { callChatbot } from "@/actions/callChatbot";
 
 
-export default function ChatForm({ addMessage, messageHistory, isLoading, turnLoadingOff, turnLoadingOn  }: { addMessage: (message: MessageType) => void, messageHistory: MessageType[], isLoading: boolean, turnLoadingOff: () => void, turnLoadingOn: () => void }) {
+export default function ChatForm({ addMessage, messageHistory, isLoading, turnLoadingOff, turnLoadingOn, userId  }: { addMessage: (message: MessageType) => void, messageHistory: MessageType[], isLoading: boolean, turnLoadingOff: () => void, turnLoadingOn: () => void, userId: string }) {
     const [currentMessage, setCurrentMessage] = useState<string>('');
     const [isFocused, setIsFocused] = useState<boolean>(false);
 
@@ -37,6 +37,7 @@ export default function ChatForm({ addMessage, messageHistory, isLoading, turnLo
         try{
             turnLoadingOn()
             const formData = new FormData()
+            formData.append('user_id', userId);
             formData.append('history', JSON.stringify(adjustedHistory));
 
             const botRes: MessageType = { 

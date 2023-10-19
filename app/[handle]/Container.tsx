@@ -20,7 +20,7 @@ export default function Container({ user }: { user: Tables<'users'> }) {
                         </div>
                         <Links links={links} />
                     </div>
-                    <Chat />
+                    <Chat userId={user_id!} />
                 </div>
             </div>
         </div>

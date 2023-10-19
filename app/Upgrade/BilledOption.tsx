@@ -5,7 +5,7 @@ export default function BilledOption({ title, selected, isYearly=false }: { titl
     const pathname = usePathname()
 
     return (
-        <Link href={isYearly ? pathname + '?billed=yearly' : pathname}>
+        <Link replace href={isYearly ? pathname + '?billed=yearly' : pathname}>
             <button className={`h-[68px] w-fit text-xl tracking-wide py-[10px] px-[15px] rounded-md ${selected ? "bg-gray-700 text-gray-50" : "text-gray-800"} flex flex-col justify-center`}>
                 {title}
                 {isYearly && (

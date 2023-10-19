@@ -1,21 +1,26 @@
 import dosis from "@/fonts/dosis";
 import { User } from "@supabase/gotrue-js";
 import Link from "next/link";
-import LogoutButton from "./LogoutButton";
+import LogoutButton from "./[handle]/LogoutButton";
 import { Tables } from "@/types/tables";
 
-export default function HeaderOptions({ user }: { user: Tables<'users'> | null}) {
+export default function HeaderOptions({ user, isPro, isLanding=false }: { user: Tables<'users'> | null, isPro: boolean, isLanding?: boolean}) {
     return (user) ? (
         <div className={`flex gap-4 items-center ${dosis.medium}`}>
-            <Link href="/Upgrade">
-                <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
+            {!isPro && (
+                <Link href="/Upgrade">
+                    <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
+                </Link>
+            )}
+            <Link href="/Manage">
+                <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Manage</button>
             </Link>
             <LogoutButton />
         </div>
     ): (
         <div className={`flex gap-4 items-center ${dosis.medium}`}>
             <Link href="/Upgrade">
-                <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
+                <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">{isLanding ? "Prices" : "Upgrade"}</button>
             </Link>
             <Link href="/Account/Login">
                 <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Log in</button>

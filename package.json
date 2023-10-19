@@ -27,6 +27,7 @@
     "chart.js": "^4.3.3",
     "convertapi": "^1.12.0",
     "convertapi-js": "~1.1",
+    "date-fns": "^2.30.0",
     "google-auth-library": "^9.0.0",
     "micro": "^10.0.1",
     "next": "13.4.10",

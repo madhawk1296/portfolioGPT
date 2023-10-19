@@ -9,6 +9,31 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      api_calls: {
+        Row: {
+          created_at: string | null
+          id: number
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "api_calls_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       subscription_tiers: {
         Row: {
           id: string
@@ -59,6 +84,7 @@ export interface Database {
           links: Json[]
           plan: string
           profile_picture: string | null
+          stripe_customer_id: string | null
           tag: string | null
           tag_color: string
           user_id: string | null
@@ -76,6 +102,7 @@ export interface Database {
           links?: Json[]
           plan?: string
           profile_picture?: string | null
+          stripe_customer_id?: string | null
           tag?: string | null
           tag_color?: string
           user_id?: string | null
@@ -93,6 +120,7 @@ export interface Database {
           links?: Json[]
           plan?: string
           profile_picture?: string | null
+          stripe_customer_id?: string | null
           tag?: string | null
           tag_color?: string
           user_id?: string | null

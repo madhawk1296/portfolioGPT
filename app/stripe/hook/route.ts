@@ -20,11 +20,11 @@ export async function POST(req: NextRequest){
     switch (event.type) {
         case 'checkout.session.completed':
             try {
-                const session = event.data.object as Stripe.Checkout.Session;
-                const clientReferenceId = session.client_reference_id!;
+                const {client_reference_id, id, subscription } = event.data.object as Stripe.Checkout.Session;
+                const clientReferenceId = client_reference_id!;
 
                 const { line_items } = await stripe.checkout.sessions.retrieve(
-                    session.id,
+                    id,
                     {
                       expand: ["line_items"],
                     }
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest){
                     throw new Error(error.message)
                 }
 
-                return new NextResponse('Handled Session Completed ' + `user_id: ${clientReferenceId}`, { status: 200})
+                return new NextResponse('Handled Session Completed', { status: 200})
             } catch(e: any) {
                 return new NextResponse(`Recieved Event, but unable to process: ${e.message}`, { status: 400 });
             }

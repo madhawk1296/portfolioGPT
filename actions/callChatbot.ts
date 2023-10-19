@@ -23,17 +23,19 @@ const openai = new OpenAIApi(configuration);
 export async function callChatbot(formData: FormData) {
     const historyData = formData.get('history') as string;
     const userId = formData.get('user_id') as string;
+    const supabase = createServerActionClient<Database>({ cookies }, { supabaseKey: process.env.SUPABASE_SERVICE_ROLE! })
+
+
+    console.log(userId);
 
     let currentUser: Tables<'users'>;
     try {
-        const supabase = createServerActionClient<Database>({ cookies })
         const { data: users, error } = await supabase.from('users').select().eq("user_id", userId);
         currentUser = users?.[0]!
 
         if(error) {
             throw new Error (error.message)
         }
-
     } catch(e: any) {
           console.log(e);
           return "Error: cannot find user"    
@@ -61,7 +63,23 @@ export async function callChatbot(formData: FormData) {
             {"role": "user", "content": userStr}, 
             ...structuredHistory
         ],
-      });
+    });
+
+    try {
+        console.log(userId)
+
+        const { error } = await supabase.from('api_calls').insert({
+          user_id: userId
+        });
+
+        console.log(error)
+
+        if(error) {
+            throw new Error (error.message)
+        }
+    } catch(e: any) {
+          return "Error: cannot log api call"    
+    }
 
     return completion.data.choices[0].message?.content!;
 }
