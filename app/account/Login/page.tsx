@@ -9,6 +9,8 @@ import Link from "next/link";
 import WrongPlaceLink from "../WrongPlaceLink";
 import SocialLogins from "../SocialLogins";
 
+export const dynamic = "force-dynamic";
+
 export default async function Create() {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();

@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 import WrongPlaceLink from "../WrongPlaceLink";
 import SocialLogins from "../SocialLogins";
 
+export const dynamic = "force-dynamic";
+
 export default async function Create() {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();

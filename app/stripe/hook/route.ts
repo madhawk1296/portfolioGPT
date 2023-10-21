@@ -4,6 +4,8 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from "@/types/supabase";
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest){
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
 

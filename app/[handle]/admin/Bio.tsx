@@ -19,7 +19,7 @@ export default function Bio({ bio: currentBio }: { bio: string | null}) {
         setIsActive(true);
     }
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setBio(e.target.value);
     }
 
@@ -53,7 +53,7 @@ export default function Bio({ bio: currentBio }: { bio: string | null}) {
                 )
             ) : (
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit} >
-                    <textarea name="bio" type="text" value={bio || ""} onChange={handleChange} className={`w-full text-gray-700 text tracking-wide min-h-[50px] outline-none border-2 rounded-xl p-[10px] ${isActive ? "border-gray-400" : "border-transparent"}`} placeholder="Add bio" />
+                    <textarea name="bio" value={bio || ""} onChange={handleChange} className={`w-full text-gray-700 text tracking-wide min-h-[50px] outline-none border-2 rounded-xl p-[10px] ${isActive ? "border-gray-400" : "border-transparent"}`} placeholder="Add bio" />
                     <div className="flex w-full justify-between">
                         <button onClick={toggleActive} className="text-sm underline rounded-xl text-gray-600 tracking-wide" >Cancel</button>
                         <button type="submit" className="text-sm px-[10px] py-[5px] rounded-xl bg-green-500 text-gray-50 tracking-wide" >Submit</button>

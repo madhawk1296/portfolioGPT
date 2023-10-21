@@ -7,6 +7,8 @@ import Link from "next/link";
 import HeaderOptions from "./HeaderOptions";
 import { Tables } from "@/types/tables";
 
+export const dynamic = "force-dynamic";
+
 export default async function Header({ isLanding=false }: { isLanding?: boolean}) {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();

@@ -3,9 +3,9 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export default async function Account() {
-    console.log('hello')
+export const dynamic = "force-dynamic";
 
+export default async function Account() {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();
     const { data: users, error } = await supabase.from("users").select().eq("user_id", user?.id!);

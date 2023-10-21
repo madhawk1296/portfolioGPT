@@ -4,6 +4,8 @@ import { cookies } from "next/headers";
 import Container from "./Container";
 import AdminContainer from "./admin/AdminContainer";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page({ params: { handle } }: { params: {handle: string} }) {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();

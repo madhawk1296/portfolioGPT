@@ -4,8 +4,6 @@ import dosis from "@/fonts/dosis";
 import { FormEvent, useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
-import resetPassword from "@/actions/ResetPassword";
-import ChangePassword from "./page";
 import changePassword from "@/actions/changePassword";
 import { useRouter } from "next/navigation";
 

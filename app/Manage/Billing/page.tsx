@@ -10,6 +10,8 @@ import Options from "./Options";
 import Stripe from "stripe";
 import FreeOptions from "./FreeOptions";
 
+export const dynamic = "force-dynamic";
+
 export default async function Billing() {
     const supabase = createServerComponentClient<Database>({ cookies })
     const { data: { user } } = await supabase.auth.getUser();
