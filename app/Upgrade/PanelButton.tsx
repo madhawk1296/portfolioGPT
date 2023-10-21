@@ -3,26 +3,36 @@ import Link from "next/link";
 import { loadStripe } from '@stripe/stripe-js';
 import stripeCheckout from "@/actions/stripeCheckout";
 import { FormEvent } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Database } from "@/types/supabase";
 
 export default function PanelButton({ isFree }: { isFree: boolean} ) {
     const searchParams = useSearchParams()
     const billed = searchParams.get('billed') as null | "yearly";
     const isYearly = billed == "yearly";
+    const supabase = createClientComponentClient<Database>();
+    const router = useRouter()
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
-        const formData = new FormData;
-        formData.append("plan", "pro")
-        formData.append("billed", isYearly ? "yearly" : "monthly")
-
-        const { data } = await stripeCheckout(formData);
-
-        if(data) {
-            stripe?.redirectToCheckout({ sessionId: data })
-        } 
+        const { data: { user }, error} = await supabase.auth.getUser();
+        
+        if(user) {
+            const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
+            const formData = new FormData;
+            formData.append("plan", "pro")
+            formData.append("billed", isYearly ? "yearly" : "monthly")
+    
+            const { data } = await stripeCheckout(formData);
+    
+            if(data) {
+                stripe?.redirectToCheckout({ sessionId: data })
+            } 
+        } else {
+            router.push("/Account")
+        }
     }
 
     return isFree ? (
