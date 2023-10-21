@@ -60,7 +60,7 @@ export default function ChatForm({ addMessage, messageHistory, isLoading, turnLo
     }
     
     return (
-        <div className={`fixed bottom-0 pb-[0px] md:pb-[15px] w-full px-[10px] rounded-t-full flex flex-col justify-center items-center gap-2`}>
+        <div className={`fixed bottom-0 pb-[0px] md:pb-[15px] w-full px-[10px] rounded-t-full flex flex-col justify-center items-center gap-2 z-20`}>
             <div className="relative w-full md:w-fit flex flex-col gap-[25px] items-end">
                 {false && (
                     <button onClick={handleConnect} className="absolute left-0 top-0 -translate-y-[80px] px-[10px] py-[10px] border-2 rounded-xl shadow bg-white">

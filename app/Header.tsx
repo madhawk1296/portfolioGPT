@@ -19,7 +19,7 @@ export default async function Header({ isLanding=false }: { isLanding?: boolean}
     const isPro = plan?.name == "pro";
 
     return (
-        <div className={`fixed top-0 bg-white w-full h-[65px] ${!isLanding && "shadow"} bg-white flex justify-between px-[10px] md:px-[100px] items-center z-500`}>
+        <div className={`fixed top-0 bg-white w-full h-[65px] ${!isLanding && "shadow"} bg-white flex justify-between px-[10px] md:px-[100px] items-center z-50`}>
             <Link href="/">
                 <button className="flex gap-2 items-center">
                     <div className="h-[33px]">
@@ -30,7 +30,7 @@ export default async function Header({ isLanding=false }: { isLanding?: boolean}
                             <h2 className={`bg-gray-800 text-gray-50 px-[10px] py-[3px] rounded-xl tracking-wider ${dosis.bold}`}>pro</h2>
                         )
                     ) : (
-                        <h2 className={`text-blue-600 text-[28px] font-semibold tracking-wider ${dosis.bold}`}>chat-fu</h2>
+                        <h2 className={`text-blue-600 text-lg md:text-[28px] font-semibold tracking-wider ${dosis.bold}`}>chat-fu</h2>
                     )}
                 </button>
             </Link>

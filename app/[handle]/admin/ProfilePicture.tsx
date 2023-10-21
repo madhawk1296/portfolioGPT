@@ -28,9 +28,11 @@ export default function ProfilePicture({ userId, profileImage }: { userId: strin
     }
 
     return profileImage ? (
-        <label className="w-fit h-fit">
-            <Image className="shadow border-2 border-white rounded-full" alt="Profile" src={publicUrl} width={125} height={125} />
+        <label className="relative w-[75px] h-[75px] md:w-[125px] md:h-[125px]">
+            <div className="absolute w-[75px] md:w-[125px] aspect-square flex items-center justify-center">
+            <Image className="w-full h-full shadow border-2 border-white rounded-full object-cover" fill={true} alt="Profile" src={publicUrl} />
             <input onChange={handleFileChange} type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
+            </div>
         </label>
     ) : (
             <label className="shadow border-2 border-white rounded-full w-[125px] aspect-square bg-gray-300 flex flex-col justify-center items-center relative">

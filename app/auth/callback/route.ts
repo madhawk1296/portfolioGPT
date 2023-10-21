@@ -11,10 +11,17 @@ export const dynamic = 'force-dynamic'
 export async function GET(req: NextRequest) {
   const { origin, searchParams} = new URL(req.url)
   const code = searchParams.get('code')
+  const next = searchParams.get('next')
+
+  console.log(code, next)
 
   if (code) {
     const supabase = createRouteHandlerClient<Database>({ cookies })
     const { data: { user, session }, error } = await supabase.auth.exchangeCodeForSession(code);
+
+    if (next) {
+      return NextResponse.redirect(`${origin}${next}`)
+    }
 
     const { data: users } = await supabase.from("users").select().eq("user_id", user?.id!);
     const currentUser = users?.[0];

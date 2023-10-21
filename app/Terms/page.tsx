@@ -5,10 +5,11 @@ import Paragraph from "./Paragraph";
 import ExternalLink from "./ExternalLink";
 import Term from "./Term";
 import ListPoint from "./ListPoint";
+import Footer from "../Footer";
 
 export default function Terms() {
     return (
-        <div className="w-full h-full flex flex-col items-center">
+        <div className="relative w-full h-full flex flex-col items-center">
             <Header isLanding={true} />
             <div className="flex flex-col w-[1000px] pt-[200px] pb-[100px] gap-12">
                 <h1 className={`w-fit text-4xl text-gray-800 tracking-wide ${dosis.bold}`}>Terms and Conditions</h1>
@@ -94,6 +95,7 @@ export default function Terms() {
                     These Terms and Conditions and any dispute or claim arising out of or in connection with them shall be governed by and construed in accordance with the laws of the State of Utah, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the state and federal courts located in the State of Utah for the resolution of any legal matter arising from these Terms and Conditions or related to your use of the Service.
                 </Paragraph>
             </div>
+            <Footer />
         </div>
     )
 }

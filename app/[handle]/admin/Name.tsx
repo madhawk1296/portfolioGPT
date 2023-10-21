@@ -2,10 +2,11 @@
 
 import changeName from "@/actions/changeName";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
 
 export default function Name({ name: currentName }: { name: string | null}) {
     const router = useRouter();
+    const inputRef = useRef<HTMLInputElement>(null);
     const [name, setName] = useState<string>(currentName || "");
     const [isFocused, setIsFocused] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null);
@@ -35,6 +36,7 @@ export default function Name({ name: currentName }: { name: string | null}) {
             error && setError(error); 
 
             setIsFocused(false);
+            inputRef.current?.blur();
             router.refresh()
         } catch(e) {
             console.log(e)
@@ -43,7 +45,7 @@ export default function Name({ name: currentName }: { name: string | null}) {
 
     return (
         <form onSubmit={handleSubmit} className={`w-full relative flex items-center gap-2 h-[50px] py-[15px] smooth px-[10px] -translate-x-[10px] rounded-xl ${isFocused && "border-2 border-gray-600"}`}>
-            <input onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} onChange={handleChange} className="outline-none w-full bg-transparent text-[28px] tracking-wide text-gray-800" placeholder="Your Name" value={name} />
+            <input ref={inputRef} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} onChange={handleChange} className="outline-none w-full bg-transparent text-[28px] tracking-wide text-gray-800" placeholder="Your Name" value={name} />
             {error && <h1 className="text-sm text-red-500 tracking-wide self-center">{error}</h1>}
         </form>
     )

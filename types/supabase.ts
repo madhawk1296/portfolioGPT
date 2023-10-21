@@ -36,6 +36,7 @@ export interface Database {
       }
       subscription_tiers: {
         Row: {
+          coupon_id: string | null
           id: string
           messages_limit: number
           monthly_cost: number
@@ -47,6 +48,7 @@ export interface Database {
           yearly_price_id: string | null
         }
         Insert: {
+          coupon_id?: string | null
           id?: string
           messages_limit: number
           monthly_cost: number
@@ -58,6 +60,7 @@ export interface Database {
           yearly_price_id?: string | null
         }
         Update: {
+          coupon_id?: string | null
           id?: string
           messages_limit?: number
           monthly_cost?: number

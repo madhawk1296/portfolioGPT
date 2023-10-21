@@ -15,7 +15,7 @@ export default function Plans() {
 
 
     return (
-        <div className="w-full flex justify-center items-center gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center gap-5 md:gap-16 pb-[60px]">
             <Panel title="Free" price={0} plan="free"  >
                 <Detail detail="AI enable portfolio page" />
                 <Detail detail="200 messages / month" />

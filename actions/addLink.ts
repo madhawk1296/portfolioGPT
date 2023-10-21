@@ -16,8 +16,10 @@ export default async function addLink(formData: FormData): Promise<{error: strin
         const supabase = createServerActionClient<Database>({ cookies })
         const { data: { user } } = await supabase.auth.getUser()
 
-        const { data: users } = await supabase.from('users').select();
+        const { data: users } = await supabase.from('users').select().eq("user_id", user?.id!);
         const { links } = users?.[0]! 
+
+        console.log({links})
 
         const { data, error } = await supabase.from('users').update(
             { links: [...links, {linkType, name, url}] }

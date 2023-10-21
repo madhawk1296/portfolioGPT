@@ -6,6 +6,7 @@ import Input from "../Input";
 import Terms from "../Terms";
 import { useRouter } from "next/navigation";
 import login from "@/actions/login";
+import ForgotPassword from "./ForgotPassword";
 
 export default function Form() {
     const router = useRouter();
@@ -47,6 +48,7 @@ export default function Form() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <Input placeholder="Email Address" handleChange={handleEmail} value={email} />
             <Input placeholder="Password" handleChange={handlePassword} value={password} isPassword={true} />
+            <ForgotPassword />
             <Button disabled={disabled} title="Log In" />
             {error && <h1 className="text-sm text-red-500 tracking-wide self-center">{error}</h1>}
         </form>

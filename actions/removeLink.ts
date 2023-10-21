@@ -10,7 +10,7 @@ export default async function removeLink(index: number): Promise<{error: string 
         const supabase = createServerActionClient<Database>({ cookies })
         const { data: { user } } = await supabase.auth.getUser()
 
-        const { data: users } = await supabase.from('users').select();
+        const { data: users } = await supabase.from('users').select().eq("user_id", user?.id!);
         const { links } = users?.[0]! 
 
         if (index < 0 || index >= links.length) {

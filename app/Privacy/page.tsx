@@ -4,10 +4,11 @@ import ExternalLink from "../Terms/ExternalLink";
 import Paragraph from "../Terms/Paragraph";
 import SubHeader from "../Terms/SubHeader";
 import ListPoint from "../Terms/ListPoint";
+import Footer from "../Footer";
 
 export default function Privacy() {
     return (
-        <div className="w-full h-full flex flex-col items-center">
+        <div className="relative w-full h-full flex flex-col items-center">
             <Header isLanding={true} />
             <div className="flex flex-col w-[1000px] pt-[200px] pb-[100px] gap-12">
                 <h1 className={`w-fit text-4xl text-gray-800 tracking-wide ${dosis.bold}`}>Privacy Policy of Chat-fu, Inc.</h1>
@@ -166,6 +167,7 @@ export default function Privacy() {
                     This Privacy Policy and any disputes related to it or to the use of your personal information are governed by the laws of the State of Utah, United States, without regard to its conflict of law principles. By using our Service, you consent to the exclusive jurisdiction of the courts located in Utah for the resolution of any disputes arising from or related to this Privacy Policy or your use of our Service.
                 </Paragraph>
             </div>
+            <Footer />
         </div>
     )
 }

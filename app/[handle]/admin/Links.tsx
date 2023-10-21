@@ -25,13 +25,21 @@ export default function Links({ links }: { links: Json[]}) {
             name: "x",
         },        
         {
-            title: "LinkedIn",
-            name: "linkedin",
+            title: "Facebook",
+            name: "facebook",
         },        
         {
-            title: "Instagram",
-            name: "instagram",
+            title: "Discord",
+            name: "discord",
         },
+        {
+            title: "Github",
+            name: "github"
+        },
+        {
+            title: "Instagram",
+            name: "instagram"
+        }
     ]
 
     const router = useRouter();
@@ -94,7 +102,7 @@ export default function Links({ links }: { links: Json[]}) {
                     <input required value={link} onChange={handleLink} className="text-sm h-[35px] border-2 border-gray-500 rounded-lg w-full px-[10px] outline-none" placeholder="https://x.com/yourhandle" />
                     <div className="w-full flex justify-between items-center mt-[10px]">
                         <button onClick={turnOffActive} className="rounded-xl px-[10px] py-[3px] bg-red-400 text-white tracking-wide shadow">Cancel</button>
-                        <button className="rounded-xl px-[10px] py-[3px] bg-green-500 text-white tracking-wide shadow">Add</button>
+                        <button type="submit" className="rounded-xl px-[10px] py-[3px] bg-green-500 text-white tracking-wide shadow">Add</button>
                     </div>
                 </form>
             ) : (

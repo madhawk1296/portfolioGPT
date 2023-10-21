@@ -44,10 +44,15 @@ export default function Form() {
             formData.append("password", password); 
 
             
-            const { error } = await createAccount(formData);
-            error && setError(error); 
+            const { data, error } = await createAccount(formData);
 
-            router.refresh()
+            error && setError(error);
+            
+            if(data) {
+                router.push(`/Account/Confirm?email=${encodeURIComponent(email)}`)
+            } else {
+                router.refresh()
+            }
         } catch(e) {
             console.log(e)
         }

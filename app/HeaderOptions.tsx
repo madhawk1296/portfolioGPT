@@ -6,7 +6,7 @@ import { Tables } from "@/types/tables";
 
 export default function HeaderOptions({ user, isPro, isLanding=false }: { user: Tables<'users'> | null, isPro: boolean, isLanding?: boolean}) {
     return (user) ? (
-        <div className={`flex gap-4 items-center ${dosis.medium}`}>
+        <div className={`flex gap-2 md:gap-4 items-center ${dosis.medium}`}>
             {!isPro && (
                 <Link href="/Upgrade">
                     <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">Upgrade</button>
@@ -18,7 +18,7 @@ export default function HeaderOptions({ user, isPro, isLanding=false }: { user: 
             <LogoutButton />
         </div>
     ): (
-        <div className={`flex gap-4 items-center ${dosis.medium}`}>
+        <div className={`flex gap-2 md:gap-4 items-center ${dosis.medium}`}>
             <Link href="/Upgrade">
                 <button className="text-gray-600 px-[10px] py-[8px] tracking-wide rounded-xl text">{isLanding ? "Prices" : "Upgrade"}</button>
             </Link>

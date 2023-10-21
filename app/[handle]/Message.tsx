@@ -1,4 +1,4 @@
-import { MessageType } from "./Chat";
+import { MessageType } from "../Chat";
 
 export default function Message({ message }: { message: MessageType}) {
     const { content, sender } = message;

@@ -8,8 +8,8 @@ export default function Panel({ title, price, children, plan="pro", isYearly=fal
     const isDiscounted = discountedPrice !== null
 
     return (
-        <div className="relative w-[300px] h-[400px] border-2 shadow-md rounded-xl bg-white flex flex-col p-[15px] gap-10">
-            <div className="flex flex-col h-[115px]">
+        <div className="relative w-[300px] md:h-[400px] border-2 shadow-md rounded-xl bg-white flex flex-col p-[15px] gap-5 md:gap-10 pb-[100px]">
+            <div className="flex flex-col md:h-[115px]">
                 <h1 className={`text-3xl ${dosis.bold} tracking-wider text-gray-800 pb-[3px]`}>{title}</h1>
                 {!isFree && <Price price={price} discountedPrice={discountedPrice!} />}
                 {isDiscounted && <h1 className="rounded-xl text-orange-500 tracking-wide">Launch Discount 50% {!isYearly && "for 6 months"}</h1>}

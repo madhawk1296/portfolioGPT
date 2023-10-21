@@ -26,7 +26,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
     return (
         <div className="w-full min-h-screen h-full flex flex-col items-center bg-gray-50">
             <Header />
-            <div className="flex w-full pt-[65px] max-w-[1200px]">
+            <div className="flex flex-col md:flex-row w-full pt-[65px] max-w-[1200px]">
                 <Nav />
                 {children}
             </div>

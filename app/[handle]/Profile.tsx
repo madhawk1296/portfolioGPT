@@ -8,8 +8,8 @@ export default function Profile({ userId, name, tag, tagColor, profileImage }: {
 
     return (
         <div className="relative h-fit w-fit flex items-center absolute top-0 -translate-y-[15px]">
-            <div className="shadow border-2 border-white rounded-full w-[125px] aspect-square bg-gray-300 relative overflow-hidden">
-                {profileImage && <Image className="" alt="Profile" src={publicUrl} width={125} height={125} />}
+            <div className="shadow border-2 border-white rounded-full w-[75px] md:w-[125px] aspect-square bg-gray-300 relative overflow-hidden">
+                {profileImage && <Image className="w-full h-full object-cover" fill={true} alt="Profile" src={publicUrl} />}
             </div>
             <div className="w-fit h-full flex flex-col px-[20px] md:gap-1 pt-[5px]">
                 {name && <h1 className="text-[28px] tracking-wide text-gray-800">{name}</h1>}
