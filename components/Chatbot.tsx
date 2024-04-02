@@ -2,7 +2,7 @@
 
 import React, { ChangeEvent, FormEventHandler, useState } from "react";
 import ChatHistory from "./ChatHistory";
-import callChatbot from "@/lib/legacy/callChatbot";
+import callChatbot from "@/lib/callChatbot";
 import { MessageType } from "@/types/MessageType";
 
 //Hello!! 

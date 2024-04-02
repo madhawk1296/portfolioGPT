@@ -1,7 +1,7 @@
 'use client';
 
 import ChatHistory from "./ChatHistory";
-import callChatbot from "@/lib/legacy/callChatbot";
+import callChatbot from "@/lib/callChatbot";
 import { MessageType } from "@/types/MessageType";
 import { ChangeEvent, useState } from "react";
 
