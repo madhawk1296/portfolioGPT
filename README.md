@@ -1,34 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chatfolio - AI-Powered Chatbot for Websites
 
-## Getting Started
+Chatfolio is an advanced AI chatbot designed to be seamlessly integrated into any website. Powered by cutting-edge technology and built with Next.js, Chatfolio offers a dynamic and interactive user experience, enhancing customer engagement and support. Whether you're looking to provide 24/7 support, capture leads, or automate responses, Chatfolio is equipped to meet the demands of businesses looking to elevate their online presence.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **AI-Driven Conversations**: Engage users with natural, AI-powered conversations tailored to their queries and needs.
+- **Easy Integration**: With a few simple steps, integrate Chatfolio into your website, regardless of the technology stack.
+- **Customizable Responses**: Tailor Chatfolio's responses to fit your brand's voice and information, providing personalized experiences for users.
+- **Analytics Dashboard**: Gain insights into user interactions, popular queries, and chatbot performance, enabling data-driven optimizations.
+- **24/7 Availability**: Ensure your website is always equipped to engage and support visitors, anytime and anywhere.
